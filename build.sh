@@ -10,7 +10,8 @@ fi
 rm -f test/Spec.hs.o test/Spec.hs.hi
 cpp -DN=$n test/Spec.hs.in > test/Spec.hs
 mkdir -p dump-$n
-$ghc -itest Spec \
+sed -i '/^#/d' test/Spec.hs
+$ghc -isrc -itest Spec \
   -XTypeOperators -XKindSignatures -XDataKinds -XFlexibleInstances -XConstraintKinds \
   -XFlexibleContexts -XMultiParamTypeClasses -XTypeFamilies \
   -XOverloadedStrings -XOverloadedLabels -XDeriveGeneric \

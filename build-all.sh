@@ -2,7 +2,7 @@
 
 set -o xtrace
 
-args="-O1 -v -dverbose-core2core -ddump-to-file -dsuppress-ticks -ddump-simpl-stats -dsuppress-idinfo -dsuppress-coercions"
+args="-O1 -v -dverbose-core2core -ddump-to-file -ddump-simpl-stats -dsuppress-idinfo -dsuppress-coercions"
 
 for i in $(seq 1 $n); do
     n=$i ./build.sh $args $@

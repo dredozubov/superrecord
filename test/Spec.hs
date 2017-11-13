@@ -1,10 +1,3 @@
-# 1 "test/Spec.hs.in"
-# 1 "<built-in>" 1
-# 1 "<built-in>" 3
-# 330 "<built-in>" 3
-# 1 "<command line>" 1
-# 1 "<built-in>" 2
-# 1 "test/Spec.hs.in" 2
 
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE ConstraintKinds #-}
@@ -66,7 +59,6 @@ type BigFieldList =
 
    "f1" := Int
 
-# 449 "test/Spec.hs.in"
    ]
 
 bigRec :: Record BigFieldList
@@ -74,7 +66,6 @@ bigRec =
 
     #f1   := 1
 
-# 843 "test/Spec.hs.in"
   & rnil
 
 main :: TestRecAppend => IO ()
