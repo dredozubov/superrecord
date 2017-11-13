@@ -1,4 +1,5 @@
-
+#define MEOW
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE ConstraintKinds #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -7,7 +8,7 @@
 {-# LANGUAGE OverloadedLabels #-}
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE DeriveGeneric #-}
-module Main where
+module Spec where
 
 import SuperRecord
 
@@ -33,8 +34,7 @@ type Ex1 =
     '["foo" := String, "int" := Int]
 
 r1 :: Record Ex1
-r1 =
-    #foo := "Hi"
+r1 = #foo := "Hi"
     & #int := 213
     & rnil
 
@@ -49,277 +49,797 @@ polyFun2 r =
     get #foo r ++ " -> " ++ show (get #bar r)
 
 rNested :: Record '["foo" := Record '["bar" := Int] ]
-rNested =
-    #foo := (#bar := 213 & rnil) & rnil
+rNested = #foo := (#bar := 213 & rnil) & rnil
 
 mtlAsk :: (MonadReader (Rec env) m, Has "id" env Int) => m Int
 mtlAsk = asksR #id
 
 type BigFieldList =
-  '[ "f1" := Int
+  '[
+#if N > 0
+   "f1" := Int
+#if N > 1
    , "f2" := Int
+#if N > 2
    , "f3" := Int
+#if N > 3
    , "f4" := Int
+#if N > 4
    , "f5" := Int
+#if N > 5
    , "f6" := Int
+#if N > 6
    , "f7" := Int
+#if N > 7
    , "f8" := Int
+#if N > 8
    , "f9" := Int
+#if N > 9
    , "f10" := Int
+#if N > 10
    , "f11" := Int
+#if N > 11
    , "f12" := Int
+#if N > 12
    , "f13" := Int
+#if N > 13
    , "f14" := Int
+#if N > 14
    , "f15" := Int
+#if N > 15
    , "f16" := Int
+#if N > 16
    , "f17" := Int
+#if N > 17
    , "f18" := Int
+#if N > 18
    , "f19" := Int
+#if N > 19
    , "f20" := Int
+#if N > 20
    , "f21" := Int
+#if N > 21
    , "f22" := Int
+#if N > 22
    , "f23" := Int
+#if N > 23
    , "f24" := Int
+#if N > 24
    , "f25" := Int
+#if N > 25
    , "f26" := Int
+#if N > 26
    , "f27" := Int
+#if N > 27
    , "f28" := Int
+#if N > 28
    , "f29" := Int
+#if N > 29
    , "f30" := Int
+#if N > 30
    , "f31" := Int
+#if N > 31
    , "f32" := Int
+#if N > 32
    , "f33" := Int
+#if N > 33
    , "f34" := Int
+#if N > 34
    , "f35" := Int
+#if N > 35
    , "f36" := Int
+#if N > 36
    , "f37" := Int
+#if N > 37
    , "f38" := Int
+#if N > 38
    , "f39" := Int
+#if N > 39
    , "f40" := Int
+#if N > 40
    , "f41" := Int
+#if N > 41
    , "f42" := Int
+#if N > 42
    , "f43" := Int
+#if N > 43
    , "f44" := Int
+#if N > 44
    , "f45" := Int
+#if N > 45
    , "f46" := Int
+#if N > 46
    , "f47" := Int
+#if N > 47
    , "f48" := Int
+#if N > 48
    , "f49" := Int
+#if N > 49
    , "f50" := Int
+#if N > 50
    , "f51" := Int
+#if N > 51
    , "f52" := Int
+#if N > 52
    , "f53" := Int
+#if N > 53
    , "f54" := Int
+#if N > 54
    , "f55" := Int
+#if N > 55
    , "f56" := Int
+#if N > 56
    , "f57" := Int
+#if N > 57
    , "f58" := Int
+#if N > 58
    , "f59" := Int
+#if N > 59
    , "f60" := Int
+#if N > 60
    , "f61" := Int
+#if N > 61
    , "f62" := Int
+#if N > 62
    , "f63" := Int
+#if N > 63
    , "f64" := Int
+#if N > 64
    , "f65" := Int
+#if N > 65
    , "f66" := Int
+#if N > 66
    , "f67" := Int
+#if N > 67
    , "f68" := Int
+#if N > 68
    , "f69" := Int
+#if N > 69
    , "f70" := Int
+#if N > 70
    , "f71" := Int
+#if N > 71
    , "f72" := Int
+#if N > 72
    , "f73" := Int
+#if N > 73
    , "f74" := Int
+#if N > 74
    , "f75" := Int
+#if N > 75
    , "f76" := Int
+#if N > 76
    , "f77" := Int
+#if N > 77
    , "f78" := Int
+#if N > 78
    , "f79" := Int
+#if N > 79
    , "f80" := Int
+#if N > 80
    , "f81" := Int
+#if N > 81
    , "f82" := Int
+#if N > 82
    , "f83" := Int
+#if N > 83
    , "f84" := Int
+#if N > 84
    , "f85" := Int
+#if N > 85
    , "f86" := Int
+#if N > 86
    , "f87" := Int
+#if N > 87
    , "f88" := Int
+#if N > 88
    , "f89" := Int
+#if N > 89
    , "f90" := Int
+#if N > 90
    , "f91" := Int
+#if N > 91
    , "f92" := Int
+#if N > 92
    , "f93" := Int
+#if N > 93
    , "f94" := Int
+#if N > 94
    , "f95" := Int
+#if N > 95
    , "f96" := Int
+#if N > 96
    , "f97" := Int
+#if N > 97
    , "f98" := Int
+#if N > 98
    , "f99" := Int
-   -- , "f100" := Int
-   -- , "f101" := Int
-   -- , "f102" := Int
-   -- , "f103" := Int
-   -- , "f104" := Int
-   -- , "f105" := Int
-   -- , "f106" := Int
-   -- , "f107" := Int
-   -- , "f108" := Int
-   -- , "f109" := Int
-   -- , "f110" := Int
-   -- , "f111" := Int
-   -- , "f112" := Int
-   -- , "f113" := Int
-   -- , "f114" := Int
-   -- , "f115" := Int
-   -- , "f116" := Int
-   -- , "f117" := Int
-   -- , "f118" := Int
-   -- , "f119" := Int
-   -- , "f120" := Int
-   -- , "f121" := Int
-   -- , "f122" := Int
-   -- , "f123" := Int
-   -- , "f124" := Int
-   -- , "f125" := Int
-   -- , "f126" := Int
-   -- , "f127" := Int
-   -- , "f128" := Int
-   -- , "f129" := Int
-   -- , "f130" := Int
+#if N > 99
+   , "f100" := Int
+#if N > 100
+   , "f101" := Int
+#if N > 101
+   , "f102" := Int
+#if N > 102
+   , "f103" := Int
+#if N > 103
+   , "f104" := Int
+#if N > 104
+   , "f105" := Int
+#if N > 105
+   , "f106" := Int
+#if N > 106
+   , "f107" := Int
+#if N > 107
+   , "f108" := Int
+#if N > 108
+   , "f109" := Int
+#if N > 109
+   , "f110" := Int
+#if N > 110
+   , "f111" := Int
+#if N > 111
+   , "f112" := Int
+#if N > 112
+   , "f113" := Int
+#if N > 113
+   , "f114" := Int
+#if N > 114
+   , "f115" := Int
+#if N > 115
+   , "f116" := Int
+#if N > 116
+   , "f117" := Int
+#if N > 117
+   , "f118" := Int
+#if N > 118
+   , "f119" := Int
+#if N > 119
+   , "f120" := Int
+#if N > 120
+   , "f121" := Int
+#if N > 121
+   , "f122" := Int
+#if N > 122
+   , "f123" := Int
+#if N > 123
+   , "f124" := Int
+#if N > 124
+   , "f125" := Int
+#if N > 125
+   , "f126" := Int
+#if N > 126
+   , "f127" := Int
+#if N > 127
+   , "f128" := Int
+#if N > 128
+   , "f129" := Int
+#if N > 129
+   , "f130" := Int
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
    ]
 
 bigRec :: Record BigFieldList
 bigRec =
-    #f1   := 1
+#if N > 0
+MEOW#f1   := 1
+#if N > 1
   & #f2   := 2
+#if N > 2
   & #f3   := 3
+#if N > 3
   & #f4   := 4
+#if N > 4
   & #f5   := 5
+#if N > 5
   & #f6   := 6
+#if N > 6
   & #f7   := 7
+#if N > 7
   & #f8   := 8
+#if N > 8
   & #f9   := 9
+#if N > 9
   & #f10  := 10
+#if N > 10
   & #f11  := 11
+#if N > 11
   & #f12  := 12
+#if N > 12
   & #f13  := 13
+#if N > 13
   & #f14  := 14
+#if N > 14
   & #f15  := 15
+#if N > 15
   & #f16  := 16
+#if N > 16
   & #f17  := 17
+#if N > 17
   & #f18  := 18
+#if N > 18
   & #f19  := 19
+#if N > 19
   & #f20  := 20
+#if N > 20
   & #f21  := 21
+#if N > 21
   & #f22  := 22
+#if N > 22
   & #f23  := 23
+#if N > 23
   & #f24  := 24
+#if N > 24
   & #f25  := 25
+#if N > 25
   & #f26  := 26
+#if N > 26
   & #f27  := 27
+#if N > 27
   & #f28  := 28
+#if N > 28
   & #f29  := 29
+#if N > 29
   & #f30  := 30
+#if N > 30
   & #f31  := 31
+#if N > 31
   & #f32  := 32
+#if N > 32
   & #f33  := 33
+#if N > 33
   & #f34  := 34
+#if N > 34
   & #f35  := 35
+#if N > 35
   & #f36  := 36
+#if N > 36
   & #f37  := 37
+#if N > 37
   & #f38  := 38
+#if N > 38
   & #f39  := 39
+#if N > 39
   & #f40  := 40
+#if N > 40
   & #f41  := 41
+#if N > 41
   & #f42  := 42
+#if N > 42
   & #f43  := 43
+#if N > 43
   & #f44  := 44
+#if N > 44
   & #f45  := 45
+#if N > 45
   & #f46  := 46
+#if N > 46
   & #f47  := 47
+#if N > 47
   & #f48  := 48
+#if N > 48
   & #f49  := 49
+#if N > 49
   & #f50  := 50
+#if N > 50
   & #f51  := 51
+#if N > 51
   & #f52  := 52
+#if N > 52
   & #f53  := 53
+#if N > 53
   & #f54  := 54
+#if N > 54
   & #f55  := 55
+#if N > 55
   & #f56  := 56
+#if N > 56
   & #f57  := 57
+#if N > 57
   & #f58  := 58
+#if N > 58
   & #f59  := 59
+#if N > 59
   & #f60  := 60
+#if N > 60
   & #f61  := 61
+#if N > 61
   & #f62  := 62
+#if N > 62
   & #f63  := 63
+#if N > 63
   & #f64  := 64
+#if N > 64
   & #f65  := 65
+#if N > 65
   & #f66  := 66
+#if N > 66
   & #f67  := 67
+#if N > 67
   & #f68  := 68
+#if N > 68
   & #f69  := 69
+#if N > 69
   & #f70  := 70
+#if N > 70
   & #f71  := 71
+#if N > 71
   & #f72  := 72
+#if N > 72
   & #f73  := 73
+#if N > 73
   & #f74  := 74
+#if N > 74
   & #f75  := 75
+#if N > 75
   & #f76  := 76
+#if N > 76
   & #f77  := 77
+#if N > 77
   & #f78  := 78
+#if N > 78
   & #f79  := 79
+#if N > 79
   & #f80  := 80
+#if N > 80
   & #f81  := 81
+#if N > 81
   & #f82  := 82
+#if N > 82
   & #f83  := 83
+#if N > 83
   & #f84  := 84
+#if N > 84
   & #f85  := 85
+#if N > 85
   & #f86  := 86
+#if N > 86
   & #f87  := 87
+#if N > 87
   & #f88  := 88
+#if N > 88
   & #f89  := 89
+#if N > 89
   & #f90  := 90
+#if N > 90
   & #f91  := 91
+#if N > 91
   & #f92  := 92
+#if N > 92
   & #f93  := 93
+#if N > 93
   & #f94  := 94
+#if N > 94
   & #f95  := 95
+#if N > 95
   & #f96  := 96
+#if N > 96
   & #f97  := 97
+#if N > 97
   & #f98  := 98
+#if N > 98
   & #f99  := 99
-  -- & #f100 := 100
-  -- & #f101 := 101
-  -- & #f102 := 102
-  -- & #f103 := 103
-  -- & #f104 := 104
-  -- & #f105 := 105
-  -- & #f106 := 106
-  -- & #f107 := 107
-  -- & #f108 := 108
-  -- & #f109 := 109
-  -- & #f110 := 110
-  -- & #f111 := 111
-  -- & #f112 := 112
-  -- & #f113 := 113
-  -- & #f114 := 114
-  -- & #f115 := 115
-  -- & #f116 := 116
-  -- & #f117 := 117
-  -- & #f118 := 118
-  -- & #f119 := 119
-  -- & #f120 := 120
-  -- & #f121 := 121
-  -- & #f122 := 122
-  -- & #f123 := 123
-  -- & #f124 := 124
-  -- & #f125 := 125
-  -- & #f126 := 126
-  -- & #f127 := 127
-  -- & #f128 := 128
-  -- & #f129 := 129
-  -- & #f130 := 130
+#if N > 99
+  & #f100 := 100
+#if N > 100
+  & #f101 := 101
+#if N > 101
+  & #f102 := 102
+#if N > 102
+  & #f103 := 103
+#if N > 103
+  & #f104 := 104
+#if N > 104
+  & #f105 := 105
+#if N > 105
+  & #f106 := 106
+#if N > 106
+  & #f107 := 107
+#if N > 107
+  & #f108 := 108
+#if N > 108
+  & #f109 := 109
+#if N > 109
+  & #f110 := 110
+#if N > 110
+  & #f111 := 111
+#if N > 111
+  & #f112 := 112
+#if N > 112
+  & #f113 := 113
+#if N > 113
+  & #f114 := 114
+#if N > 114
+  & #f115 := 115
+#if N > 115
+  & #f116 := 116
+#if N > 116
+  & #f117 := 117
+#if N > 117
+  & #f118 := 118
+#if N > 118
+  & #f119 := 119
+#if N > 119
+  & #f120 := 120
+#if N > 120
+  & #f121 := 121
+#if N > 121
+  & #f122 := 122
+#if N > 122
+  & #f123 := 123
+#if N > 123
+  & #f124 := 124
+#if N > 124
+  & #f125 := 125
+#if N > 125
+  & #f126 := 126
+#if N > 126
+  & #f127 := 127
+#if N > 127
+  & #f128 := 128
+#if N > 128
+  & #f129 := 129
+#if N > 129
+  & #f130 := 130
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
   & rnil
 
 main :: TestRecAppend => IO ()

@@ -1,6 +1,9 @@
 resolver: lts-8.20
 packages:
   - '.'
+allow-newer: true
+system-ghc: true
+skip-ghc-check: true
 extra-deps:
   - bookkeeper-0.2.4
   - type-level-sets-0.8.0.0
