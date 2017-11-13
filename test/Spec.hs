@@ -59,12 +59,16 @@ type BigFieldList =
 
    "f1" := Int
 
+   , "f2" := Int
+
    ]
 
 bigRec :: Record BigFieldList
 bigRec =
 
     #f1   := 1
+
+  & #f2   := 2
 
   & rnil
 

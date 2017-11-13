@@ -7,5 +7,5 @@ args="-O1 -v -dverbose-core2core -ddump-to-file -ddump-simpl-stats -dsuppress-id
 for i in $(seq 1 $n); do
     n=$i ./build.sh $args $@
     rm -Rf dump-$i/test/Spec-core2core.split || true
-    ./split-core2core.py dump-$i/test/Spec-core2core
+    ./split-core2core.py dump-$i/test/Spec.verbose-core2core
 done
